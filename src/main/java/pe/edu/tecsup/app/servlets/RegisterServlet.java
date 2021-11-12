@@ -25,9 +25,25 @@ public class RegisterServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request    /* recibe la peticion   */ , 
+						 HttpServletResponse response  /* responde la peticion */ ) 
+				throws ServletException, IOException {
+		
+		//     http://localhost:8080/mod02-lab04-servlet/
+		//     
+		//     RegisterServlet?username=jgomezm
+		//
+		// 
+		
+		String username = request.getParameter("username");
+		
+		System.out.println(username);
+		
+		response.getWriter()
+							.append("<html>")
+							.append("<h2>Hola " + username + " </h2>")
+							.append("<p>Este es mi primer Servlet</p>")
+							.append("</html>");
 	}
 
 	/**
