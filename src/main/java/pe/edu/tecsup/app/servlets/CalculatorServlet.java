@@ -1,6 +1,8 @@
 package pe.edu.tecsup.app.servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +42,20 @@ public class CalculatorServlet extends HttpServlet {
 		System.out.println(ope1 + ope2);
 		
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter()
+//				.append("Served at: ")
+//				.append(request.getContextPath());
+		
+		
+		// Que recurso debo mostrar
+		RequestDispatcher dispatcher 
+			= getServletContext().getRequestDispatcher("/messages.html");
+		
+		
+		// Hazlo
+        dispatcher.forward(request, response);
+
+		
 	}
 
 	/**
