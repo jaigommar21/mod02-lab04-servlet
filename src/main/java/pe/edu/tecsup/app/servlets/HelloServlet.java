@@ -38,7 +38,7 @@ public class HelloServlet extends HttpServlet {
 		
 		response.getWriter()
 				.append("<html>")
-				.append("<h2>Hola Mundo</h2>")
+				.append("<h2>doGet => Hola Mundo</h2>")
 				.append("<p>Este es mi primer Servlet</p>")
 				.append("</html>");
 
@@ -49,7 +49,13 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		response.getWriter()
+				.append("<html>")
+				.append("<h2>doPost => Hola Mundo</h2>")
+				.append("<p>Este es mi primer Servlet</p>")
+				.append("</html>");
+			
 	}
 
 }
