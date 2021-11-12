@@ -8,20 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HelloServlet
+ * Servlet implementation class CalculatorServlet
  */
-
-//  http://localhost:8080/mod02-lab04-servlet/HelloServlet
-
-@WebServlet("/HelloServlet")
-public class HelloServlet extends HttpServlet {
-	
+@WebServlet("/CalculatorServlet")
+public class CalculatorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloServlet() {
+    public CalculatorServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +28,19 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		response.getWriter()
-//				.append("Hello World...! ")
-//				.append(request.getContextPath());
-		
-		response.getWriter()
-				.append("<html>")
-				.append("<h2>doGet => Hola Mundo</h2>")
-				.append("<p>Este es mi primer Servlet</p>")
-				.append("</html>");
-		
-		
-		
+		String ope_1 = request.getParameter("ope_1");
+		String ope_2 = request.getParameter("ope_2");
 
+		// String to int
+		int ope1 = Integer.parseInt(ope_1);
+		int ope2 = Integer.parseInt(ope_2);
+		
+		
+		// Sum
+		System.out.println(ope1 + ope2);
+		
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -52,13 +48,7 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		response.getWriter()
-				.append("<html>")
-				.append("<h2>doPost => Hola Mundo</h2>")
-				.append("<p>Este es mi primer Servlet</p>")
-				.append("</html>");
-			
+		doGet(request, response);
 	}
 
 }
